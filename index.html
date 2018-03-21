@@ -1,0 +1,90 @@
+<html>
+	<style>
+	#tablero div > div
+	{
+		background-color: indigo;
+		width: 200px;
+		height: 200px;
+		border-color: white;
+		border-style: solid;
+		border-width: 5px;
+		display: table-cell;
+	}
+	</style>
+	
+		<script>
+		//Retorna ruta de la imagen
+		function cualImagen( fila, col ){
+			var imagenes = [ 
+				"1.png",
+				"2.png",
+				"3.png",
+				"4.png",
+				"5.png",
+				"6.png",
+				"7.png",
+				"8.png",
+				"9.png",
+				"10.png"
+			];
+			var pos = (fila+1)*5 + col;
+			return "img/" + imagenes[ pos % 10 ];
+		}
+		//Carga la imagen al elemento div
+		function htmlCarta( fila, col ){
+			return '<div><img src="' + cualImagen(fila,col) + '" /></div>';
+		}
+		//Reparte cartas de manera aleatoria
+		function repartir(){
+			var cartas="";
+			for( var fila = 0; fila <= 4; fila++){
+				for( col = 0; col <= 5; col++){
+					cartas += htmlCarta( fila, col );
+				}
+			}
+			
+		</script>	
+	
+	<body>
+				
+		<div id = "tablero"> 
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			
+			<div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			
+			<button onclick="repartir()">Repartir</button>
+		</div>
+
+		<div id = "puntaje">
+			text: "puntaje";
+	</body>
+	
+</html>
